@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 
 @Entity
 @AllArgsConstructor
@@ -15,7 +12,7 @@ import java.util.Set;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long courseId;
 
@@ -25,6 +22,4 @@ public class Course {
 
     private Integer courseCapacity;
 
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> student = new HashSet<>();
 }

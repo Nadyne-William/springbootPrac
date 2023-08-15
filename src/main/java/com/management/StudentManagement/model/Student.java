@@ -7,8 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Setter
@@ -34,11 +33,7 @@ public class Student {
     @Column
     private String gender;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "assigned_courses",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
-    )
-    private Set<Course> courses = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_student_id", referencedColumnName = "student_id")
+    private List<Course> course;
 }
