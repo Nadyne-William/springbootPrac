@@ -2,19 +2,14 @@ package com.management.StudentManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Setter
-@Getter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-
+@AllArgsConstructor
 @Table(name = "studentDetails")
 public class Student {
 
@@ -24,16 +19,16 @@ public class Student {
     @JsonIgnore
     private Long id;
 
-    @Column
+
     private String firstName;
 
-    @Column
+
     private String lastName;
 
-    @Column
+
     private String gender;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_student_id", referencedColumnName = "student_id")
-    private List<Course> course;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "address_id")
+//    private List<Course> courses;
 }

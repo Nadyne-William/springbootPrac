@@ -12,13 +12,13 @@ import java.util.Optional;
 public class CourseService {
 
     @Autowired
-    CourseRepository courseRepository;
+    private CourseRepository courseRepository;
 
     public Course createCourse(Course course){
         return courseRepository.save(course);
     }
 
-    public List<Course> getAllCourses(Course course){
+    public List<Course> getAllCourses(){
         return courseRepository.findAll();
     }
 

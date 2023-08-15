@@ -15,6 +15,7 @@ public class StudentService {
     StudentRepository studentRepository;
 
     public Student createStudent (Student student){
+        System.out.println(student);
         return studentRepository.save(student);
     }
 
@@ -24,7 +25,7 @@ public class StudentService {
 
     public Optional<Student> getStudentById(Long id){
         Optional<Student> studentDetail = studentRepository.findById(id);
-        return studentDetail.isPresent()? Optional.of(studentDetail.get()) : null;
+        return studentDetail.map(Optional::of).orElse(null);
     }
 
     public String updateStudent(Long id, Student student){
