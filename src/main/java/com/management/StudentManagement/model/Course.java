@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @AllArgsConstructor
@@ -22,4 +25,6 @@ public class Course {
 
     private Integer courseCapacity;
 
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> student = new HashSet<>();
 }
