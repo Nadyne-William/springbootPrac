@@ -36,6 +36,7 @@ public class EnrollmentService {
         enrollment.setStudent(student);
         enrollment.setCourse(course);
 
+        System.out.println(enrollment);
         return enrollmentRepository.save(enrollment);
     }
 }
