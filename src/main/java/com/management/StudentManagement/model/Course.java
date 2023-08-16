@@ -8,11 +8,8 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 
-@Table(name = "course")
 public class Course {
 
     @Id
@@ -20,13 +17,13 @@ public class Course {
     @JsonIgnore
     private Long courseId;
 
-    @Column
+
     private String courseName;
 
-    @Column
+
     private String courseDescription;
 
-    @Column
+
     private int courseCapacity;
 
 }

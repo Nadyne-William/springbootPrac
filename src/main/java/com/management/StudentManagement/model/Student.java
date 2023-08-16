@@ -10,7 +10,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "studentDetails")
+
+@Table(name = "student_details")
 public class Student {
 
     @Id
@@ -28,7 +29,7 @@ public class Student {
 
     private String gender;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "address_id")
-//    private List<Course> courses;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_student_id", referencedColumnName = "student_id")
+    private List<Course> course;
 }

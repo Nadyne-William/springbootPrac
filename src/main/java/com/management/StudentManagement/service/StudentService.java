@@ -12,14 +12,14 @@ import java.util.Optional;
 public class StudentService {
 
     @Autowired
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     public Student createStudent (Student student){
         System.out.println(student);
         return studentRepository.save(student);
     }
 
-    public List<Student> getAllStudents(Student student){
+    public List<Student> getAllStudents(){
         return studentRepository.findAll();
     }
 

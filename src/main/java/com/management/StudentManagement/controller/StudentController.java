@@ -1,7 +1,7 @@
 package com.management.StudentManagement.controller;
 
 import com.management.StudentManagement.model.Student;
-import com.management.StudentManagement.service.CourseService;
+//import com.management.StudentManagement.service.CourseService;
 import com.management.StudentManagement.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,15 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @Autowired
-    private CourseService courseService;
 
     @PostMapping()
-    public Student createStudent(Student student){
+    public Student createStudent(@RequestBody @Valid Student student){
         return studentService.createStudent(student);
     }
 
     @GetMapping()
-    public List<Student> getAllStudents(Student student){
-        return studentService.getAllStudents(student);
+    public List<Student> getAllStudents(){
+        return studentService.getAllStudents();
     }
 
     @GetMapping("/{id}")
