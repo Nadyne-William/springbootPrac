@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 
 public class Course {
@@ -26,4 +26,6 @@ public class Course {
 
     private int courseCapacity;
 
+    @OneToMany(mappedBy = "course")
+    private List<Enrollment> enrollments;
 }

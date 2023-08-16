@@ -8,8 +8,6 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 
 @Table(name = "student_details")
 public class Student {
@@ -32,4 +30,8 @@ public class Student {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_student_id", referencedColumnName = "student_id")
     private List<Course> course;
+
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollments;
+
 }

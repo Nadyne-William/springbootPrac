@@ -1,8 +1,11 @@
 package com.management.StudentManagement.controller;
 
+import com.management.StudentManagement.model.Course;
 import com.management.StudentManagement.model.Student;
 //import com.management.StudentManagement.service.CourseService;
+import com.management.StudentManagement.service.CourseService;
 import com.management.StudentManagement.service.StudentService;
+import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +19,6 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
 
     @PostMapping()
     public Student createStudent(@RequestBody @Valid Student student){
@@ -42,5 +44,7 @@ public class StudentController {
     public String deleteStudentDetails(@PathVariable(name = "id") Long studentId){
         return studentService.deleteStudent(studentId);
     }
+
+
 
 }
